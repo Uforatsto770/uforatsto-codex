@@ -43,7 +43,7 @@ if (quoteForm) {
     const projectType = String(formData.get("projectType") || "").trim();
     const message = String(formData.get("message") || "").trim();
 
-    const subject = `Quote Request - ${projectType || "Project Inquiry"}`;
+    const subject = `Project Inquiry - ${projectType || "Quote Request"}`;
     const body = [
       `Name: ${name}`,
       `Email: ${email}`,

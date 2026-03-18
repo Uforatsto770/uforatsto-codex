@@ -175,6 +175,8 @@ select {
 .point-card,
 .reason-card,
 .scope-card,
+.process-card,
+.strip-item,
 .contact-card,
 .contact-form {
   box-shadow: var(--shadow);
@@ -308,7 +310,8 @@ select {
 .service-card h3,
 .point-card h3,
 .reason-card h3,
-.scope-card h3 {
+.scope-card h3,
+.process-card h3 {
   display: block;
   color: var(--navy);
 }
@@ -325,6 +328,49 @@ select {
   color: #fff;
   border-radius: 28px;
   padding: 28px;
+}
+
+.credibility-strip {
+  padding: 0 0 26px;
+}
+
+.strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.strip-item {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  padding: 18px 18px 18px 20px;
+}
+
+.strip-item::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 34px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(192, 138, 43, 0.62);
+}
+
+.strip-item strong {
+  display: block;
+  color: var(--navy);
+  font-size: 0.96rem;
+}
+
+.strip-item span {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
 }
 
 .hero-panel .panel-label,
@@ -383,8 +429,11 @@ select {
 .point-card,
 .reason-card,
 .scope-card,
+.process-card,
 .contact-card,
 .contact-form {
+  position: relative;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: var(--radius);
@@ -393,14 +442,31 @@ select {
 .service-card,
 .point-card,
 .reason-card,
-.scope-card {
+.scope-card,
+.process-card {
   padding: 24px;
+}
+
+.service-card::before,
+.point-card::before,
+.reason-card::before,
+.scope-card::before,
+.process-card::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 0;
+  width: 34px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(192, 138, 43, 0.6);
 }
 
 .service-card h3,
 .point-card h3,
 .reason-card h3,
-.scope-card h3 {
+.scope-card h3,
+.process-card h3 {
   margin: 0 0 12px;
   font-size: 1.08rem;
 }
@@ -408,9 +474,32 @@ select {
 .service-card p,
 .point-card p,
 .reason-card p,
-.scope-card p {
+.scope-card p,
+.process-card p {
   margin: 0;
   color: var(--ink-soft);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.step-badge {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: rgba(192, 138, 43, 0.12);
+  color: var(--brand-dark);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 
 .equipment-section {
@@ -509,6 +598,26 @@ select {
 .contact-grid {
   grid-template-columns: minmax(0, 0.95fr) minmax(340px, 0.95fr);
   align-items: start;
+}
+
+.contact-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.contact-topics span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: var(--navy);
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .contact-stack {
@@ -621,6 +730,8 @@ select {
 }
 
 @media (max-width: 1120px) {
+  .strip-grid,
+  .process-grid,
   .card-grid,
   .reason-grid,
   .scope-grid {
@@ -686,6 +797,8 @@ select {
   }
 
   .hero-highlights,
+  .strip-grid,
+  .process-grid,
   .equipment-points,
   .card-grid,
   .reason-grid,
