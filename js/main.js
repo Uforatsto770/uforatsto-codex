@@ -3,6 +3,7 @@ const siteNav = document.getElementById("siteNav");
 const siteHeader = document.querySelector(".site-header");
 const yearNode = document.getElementById("year");
 const quoteForm = document.getElementById("quoteForm");
+const formStatus = document.getElementById("formStatus");
 
 if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
@@ -33,26 +34,41 @@ const updateHeaderState = () => {
 updateHeaderState();
 window.addEventListener("scroll", updateHeaderState, { passive: true });
 
+const clearFormStatus = () => {
+  if (!formStatus) {
+    return;
+  }
+
+  formStatus.hidden = true;
+  formStatus.textContent = "";
+};
+
+const setFormStatus = (message) => {
+  if (!formStatus) {
+    return;
+  }
+
+  formStatus.hidden = false;
+  formStatus.textContent = message;
+};
+
 if (quoteForm) {
+  quoteForm.querySelectorAll("input, select, textarea").forEach((field) => {
+    field.addEventListener("input", clearFormStatus);
+    field.addEventListener("change", clearFormStatus);
+  });
+
   quoteForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+    const endpoint = String(quoteForm.dataset.endpoint || "").trim();
 
-    const formData = new FormData(quoteForm);
-    const name = String(formData.get("name") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const projectType = String(formData.get("projectType") || "").trim();
-    const message = String(formData.get("message") || "").trim();
+    if (!endpoint) {
+      event.preventDefault();
+      setFormStatus(
+        "Quote form is ready, but the submission endpoint has not been connected yet. Please use the email or phone details on this page for now."
+      );
+      return;
+    }
 
-    const subject = `Project Inquiry - ${projectType || "Quote Request"}`;
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Project Type: ${projectType}`,
-      "",
-      "Project Details:",
-      message
-    ].join("\n");
-
-    window.location.href = `mailto:info@uforatsto.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    quoteForm.action = endpoint;
   });
 }
