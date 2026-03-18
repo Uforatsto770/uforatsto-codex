@@ -368,7 +368,7 @@ code {
 }
 
 .systems-media {
-  min-height: 260px;
+  min-height: 300px;
 }
 
 .hero-media img {
@@ -384,7 +384,7 @@ code {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: 72% center;
+  object-position: 68% center;
 }
 
 .media-placeholder {
@@ -415,7 +415,7 @@ code {
 }
 
 .media-tall {
-  min-height: 260px;
+  min-height: 300px;
   margin-top: 10px;
 }
 
@@ -453,7 +453,7 @@ code {
 }
 
 .systems-layout {
-  grid-template-columns: minmax(300px, 0.88fr) minmax(0, 1.12fr);
+  grid-template-columns: minmax(360px, 0.98fr) minmax(0, 1.02fr);
   align-items: start;
 }
 
