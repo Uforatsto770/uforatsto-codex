@@ -385,7 +385,9 @@ code {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: 44% center;
+  object-position: center center;
+  transform: scale(1.04);
+  transform-origin: center center;
 }
 
 .media-placeholder {
@@ -454,9 +456,9 @@ code {
 }
 
 .systems-layout {
-  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-  gap: 28px;
-  align-items: stretch;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
 }
 
 .tier-grid,
@@ -523,7 +525,7 @@ code {
 }
 
 .systems-aside.compact {
-  max-width: none;
+  max-width: 760px;
   align-content: start;
 }
 
@@ -887,7 +889,9 @@ code {
   }
 
   .systems-media img {
-    object-position: 48% center;
+    object-position: center center;
+    transform: scale(1.02);
+    transform-origin: center center;
   }
 
   .footer-inner {
@@ -919,7 +923,8 @@ code {
   }
 
   .systems-media img {
-    object-position: 52% center;
+    object-position: center center;
+    transform: scale(1);
   }
 
   .system-card,
