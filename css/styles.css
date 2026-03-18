@@ -290,7 +290,8 @@ code {
 
 .hero-points,
 .check-list,
-.tier-list {
+.tier-list,
+.component-list {
   list-style: none;
   margin: 28px 0 0;
   padding: 0;
@@ -424,11 +425,10 @@ code {
 }
 
 .systems-layout {
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  grid-template-columns: minmax(300px, 0.88fr) minmax(0, 1.12fr);
   align-items: start;
 }
 
-.systems-grid,
 .tier-grid,
 .process-grid,
 .support-grid,
@@ -436,10 +436,6 @@ code {
 .form-grid {
   display: grid;
   gap: 18px;
-}
-
-.systems-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .system-card,
@@ -496,8 +492,38 @@ code {
   gap: 18px;
 }
 
+.systems-aside.compact {
+  align-content: start;
+}
+
 .note-card .panel-label {
   margin-bottom: 0;
+}
+
+.component-list {
+  display: grid;
+  gap: 16px;
+}
+
+.component-list li {
+  display: grid;
+  gap: 4px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.component-list li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.component-list strong {
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.component-list span {
+  color: var(--ink-soft);
 }
 
 .check-list {
@@ -507,6 +533,15 @@ code {
 
 .tier-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tier-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background:
+    linear-gradient(180deg, rgba(185, 135, 42, 0.06) 0%, rgba(255, 255, 255, 0) 88%),
+    var(--surface);
 }
 
 .tier-meta {
@@ -541,6 +576,12 @@ code {
 .tier-list {
   display: grid;
   gap: 10px;
+}
+
+.tier-scale {
+  color: var(--brand-dark) !important;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .process-grid {
@@ -599,6 +640,10 @@ code {
   line-height: 1.55;
 }
 
+.contact-card p {
+  color: var(--ink-soft);
+}
+
 .contact-card a:hover,
 .contact-card a:focus-visible {
   color: var(--brand-dark);
@@ -611,6 +656,11 @@ code {
 
 .form-head {
   margin-bottom: 18px;
+}
+
+.form-state {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
 }
 
 .form-grid {
@@ -767,7 +817,6 @@ code {
     text-align: center;
   }
 
-  .systems-grid,
   .tier-grid,
   .process-grid,
   .support-grid,

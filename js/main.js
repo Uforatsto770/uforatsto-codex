@@ -64,7 +64,7 @@ if (quoteForm) {
     if (!endpoint) {
       event.preventDefault();
       setFormStatus(
-        "Quote form is ready, but the submission endpoint has not been connected yet. Please use the email or phone details on this page for now."
+        "Submission endpoint is not connected yet. The quote form is implementation-ready and can go live as soon as data-endpoint is wired to a real backend."
       );
       return;
     }
