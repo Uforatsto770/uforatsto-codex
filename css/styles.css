@@ -333,6 +333,7 @@ code {
 }
 
 .hero-media,
+.systems-media,
 .media-placeholder,
 .hero-panel,
 .system-card,
@@ -346,6 +347,7 @@ code {
 }
 
 .hero-media,
+.systems-media,
 .media-placeholder,
 .system-card,
 .note-card,
@@ -365,12 +367,24 @@ code {
   min-height: 320px;
 }
 
+.systems-media {
+  min-height: 260px;
+}
+
 .hero-media img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
   object-position: center center;
+}
+
+.systems-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 72% center;
 }
 
 .media-placeholder {
