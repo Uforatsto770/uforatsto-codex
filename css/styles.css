@@ -368,7 +368,8 @@ code {
 }
 
 .systems-media {
-  min-height: 300px;
+  width: 100%;
+  min-height: clamp(360px, 46vw, 580px);
 }
 
 .hero-media img {
@@ -384,7 +385,7 @@ code {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: 68% center;
+  object-position: 44% center;
 }
 
 .media-placeholder {
@@ -415,8 +416,8 @@ code {
 }
 
 .media-tall {
-  min-height: 300px;
-  margin-top: 10px;
+  min-height: clamp(360px, 46vw, 580px);
+  margin-top: 0;
 }
 
 .hero-panel {
@@ -453,8 +454,9 @@ code {
 }
 
 .systems-layout {
-  grid-template-columns: minmax(360px, 0.98fr) minmax(0, 1.02fr);
-  align-items: start;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  gap: 28px;
+  align-items: stretch;
 }
 
 .tier-grid,
@@ -521,6 +523,7 @@ code {
 }
 
 .systems-aside.compact {
+  max-width: none;
   align-content: start;
 }
 
@@ -878,6 +881,15 @@ code {
     font-size: clamp(2.2rem, 10vw, 3.6rem);
   }
 
+  .systems-media,
+  .media-tall {
+    min-height: 360px;
+  }
+
+  .systems-media img {
+    object-position: 48% center;
+  }
+
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -899,6 +911,15 @@ code {
 
   .button {
     width: 100%;
+  }
+
+  .systems-media,
+  .media-tall {
+    min-height: 300px;
+  }
+
+  .systems-media img {
+    object-position: 52% center;
   }
 
   .system-card,
