@@ -2,6 +2,7 @@ const menuToggle = document.getElementById("menuToggle");
 const siteNav = document.getElementById("siteNav");
 const siteHeader = document.querySelector(".site-header");
 const yearNode = document.getElementById("year");
+const quoteForm = document.getElementById("quoteForm");
 
 if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
@@ -31,3 +32,27 @@ const updateHeaderState = () => {
 
 updateHeaderState();
 window.addEventListener("scroll", updateHeaderState, { passive: true });
+
+if (quoteForm) {
+  quoteForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(quoteForm);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const projectType = String(formData.get("projectType") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    const subject = `Quote Request - ${projectType || "Project Inquiry"}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Project Type: ${projectType}`,
+      "",
+      "Project Details:",
+      message
+    ].join("\n");
+
+    window.location.href = `mailto:info@uforatsto.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}

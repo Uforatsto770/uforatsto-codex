@@ -7,6 +7,7 @@
   --line: #d8e0ea;
   --brand: #c08a2b;
   --brand-dark: #9f6e17;
+  --brand-pale: #f4e6c3;
   --navy: #0f172a;
   --navy-soft: #1f2d44;
   --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
@@ -40,11 +41,6 @@ a {
   text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
 button,
 input,
 textarea,
@@ -58,7 +54,7 @@ select {
 }
 
 .section {
-  padding: 88px 0;
+  padding: 92px 0;
 }
 
 .section-muted {
@@ -81,6 +77,7 @@ select {
 }
 
 .header-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -127,12 +124,12 @@ select {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
 }
 
 .site-nav a {
   color: var(--ink-soft);
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   font-weight: 600;
   transition: color 0.2s ease, transform 0.2s ease;
 }
@@ -163,27 +160,28 @@ select {
 
 .hero {
   padding-top: 60px;
-  padding-bottom: 96px;
+  padding-bottom: 102px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
   gap: 36px;
   align-items: stretch;
 }
 
-.hero-copy,
 .hero-panel,
 .service-card,
 .point-card,
 .reason-card,
-.contact-card {
+.scope-card,
+.contact-card,
+.contact-form {
   box-shadow: var(--shadow);
 }
 
 .hero-copy {
-  padding: 28px 0;
+  padding: 20px 0 12px;
 }
 
 .eyebrow,
@@ -206,24 +204,35 @@ select {
 
 .hero h1 {
   max-width: 14ch;
-  font-size: clamp(2.6rem, 5vw, 4.6rem);
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
   line-height: 1.03;
+}
+
+.section-title {
+  max-width: 17ch;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.1;
 }
 
 .hero-text,
 .body-copy,
 .body-copy.single {
   color: var(--ink-soft);
-  font-size: 1.06rem;
+  font-size: 1.05rem;
 }
 
 .hero-text {
-  max-width: 62ch;
+  max-width: 64ch;
   margin: 24px 0 0;
 }
 
 .body-copy p {
   margin: 0 0 16px;
+}
+
+.body-copy.single,
+.scope-intro {
+  max-width: 68ch;
 }
 
 .hero-actions,
@@ -295,9 +304,11 @@ select {
 .contact-item strong,
 .panel-item h2,
 .equipment-side h3,
+.contact-form h3,
 .service-card h3,
 .point-card h3,
-.reason-card h3 {
+.reason-card h3,
+.scope-card h3 {
   display: block;
   color: var(--navy);
 }
@@ -306,7 +317,7 @@ select {
   display: block;
   margin-top: 6px;
   color: var(--ink-soft);
-  font-size: 0.95rem;
+  font-size: 0.94rem;
 }
 
 .hero-panel {
@@ -316,8 +327,9 @@ select {
   padding: 28px;
 }
 
-.hero-panel .panel-label {
-  color: #f0d49e;
+.hero-panel .panel-label,
+.equipment-side .panel-label {
+  color: var(--brand-pale);
 }
 
 .panel-item + .panel-item {
@@ -351,18 +363,13 @@ select {
 }
 
 .split-layout {
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-}
-
-.section-title {
-  max-width: 15ch;
-  font-size: clamp(2rem, 3vw, 3rem);
-  line-height: 1.1;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
 }
 
 .card-grid,
 .reason-grid,
-.equipment-points {
+.equipment-points,
+.scope-grid {
   display: grid;
   gap: 18px;
 }
@@ -375,7 +382,9 @@ select {
 .service-card,
 .point-card,
 .reason-card,
-.contact-card {
+.scope-card,
+.contact-card,
+.contact-form {
   background: var(--surface);
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: var(--radius);
@@ -383,20 +392,23 @@ select {
 
 .service-card,
 .point-card,
-.reason-card {
+.reason-card,
+.scope-card {
   padding: 24px;
 }
 
 .service-card h3,
 .point-card h3,
-.reason-card h3 {
+.reason-card h3,
+.scope-card h3 {
   margin: 0 0 12px;
   font-size: 1.08rem;
 }
 
 .service-card p,
 .point-card p,
-.reason-card p {
+.reason-card p,
+.scope-card p {
   margin: 0;
   color: var(--ink-soft);
 }
@@ -407,7 +419,7 @@ select {
 }
 
 .equipment-grid {
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
   align-items: start;
 }
 
@@ -424,11 +436,19 @@ select {
   box-shadow: var(--shadow);
 }
 
-.equipment-side h3 {
+.equipment-side h3,
+.contact-form h3 {
   margin: 0;
-  color: #fff;
-  font-size: 1.55rem;
+  font-size: 1.5rem;
   line-height: 1.2;
+}
+
+.equipment-side h3 {
+  color: #fff;
+}
+
+.contact-form h3 {
+  color: var(--navy);
 }
 
 .check-list {
@@ -473,17 +493,88 @@ select {
   margin-top: 34px;
 }
 
+.scope-intro {
+  margin: 20px 0 0;
+}
+
+.scope-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 32px;
+}
+
 .contact-section {
   background: linear-gradient(180deg, rgba(15, 23, 42, 0.03) 0%, rgba(15, 23, 42, 0) 100%);
 }
 
 .contact-grid {
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 0.95fr);
   align-items: start;
 }
 
-.contact-card {
+.contact-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-card,
+.contact-form {
   padding: 28px;
+}
+
+.form-head {
+  margin-bottom: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  padding: 14px 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: rgba(192, 138, 43, 0.65);
+  box-shadow: 0 0 0 4px rgba(192, 138, 43, 0.12);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 132px;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.form-note {
+  margin: 12px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
 }
 
 .contact-item + .contact-item {
@@ -531,7 +622,8 @@ select {
 
 @media (max-width: 1120px) {
   .card-grid,
-  .reason-grid {
+  .reason-grid,
+  .scope-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -596,21 +688,23 @@ select {
   .hero-highlights,
   .equipment-points,
   .card-grid,
-  .reason-grid {
+  .reason-grid,
+  .scope-grid,
+  .form-grid {
     grid-template-columns: 1fr;
   }
 
   .section {
-    padding: 72px 0;
+    padding: 76px 0;
   }
 
   .hero {
-    padding-top: 38px;
-    padding-bottom: 72px;
+    padding-top: 40px;
+    padding-bottom: 76px;
   }
 
   .hero h1 {
-    font-size: clamp(2.2rem, 10vw, 3.2rem);
+    font-size: clamp(2.2rem, 10vw, 3.3rem);
   }
 
   .footer-inner {
