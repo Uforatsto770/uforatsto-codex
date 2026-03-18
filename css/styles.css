@@ -332,6 +332,7 @@ code {
   gap: 18px;
 }
 
+.hero-media,
 .media-placeholder,
 .hero-panel,
 .system-card,
@@ -344,6 +345,7 @@ code {
   box-shadow: var(--shadow);
 }
 
+.hero-media,
 .media-placeholder,
 .system-card,
 .note-card,
@@ -357,6 +359,18 @@ code {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+}
+
+.hero-media {
+  min-height: 320px;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .media-placeholder {
